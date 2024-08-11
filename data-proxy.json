@@ -1,0 +1,12 @@
+{
+  "accounts": [
+    {
+      "acc_info": "0x86547bde3186E4D53237b9B183FF89A209c24Bfa<smart-airdrop>5741069103",
+      "proxy_info": "http://wipxvgtk:av1qs7degm0e@64.64.118.149:6732"
+    },
+    {
+      "acc_info": "",
+      "proxy_info": "http://user:pass@ip:port"
+    }
+  ]
+}
