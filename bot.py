@@ -9,7 +9,18 @@ from package.core.tasks import process_do_task
 
 import time
 import brotli
+import http.server
+import socketserver
+import multiprocessing
 
+PORT = 8080
+
+def web_server(): 
+    Handler = http.server.SimpleHTTPRequestHandler
+
+    with socketserver.TCPServer(("", PORT), Handler) as httpd:
+        print("serving at port", PORT, flush=True)
+        httpd.serve_forever()
 
 class Taman:
     def __init__(self):
@@ -72,6 +83,9 @@ class Taman:
 
 if __name__ == "__main__":
     try:
+        p = multiprocessing.Process(target=web_server, args=())
+        p.daemon = True
+        p.start()
         taman = Taman()
         taman.main()
     except KeyboardInterrupt:
